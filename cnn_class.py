@@ -2,6 +2,8 @@ import torch
 import torch.nn as nn
 import torch.functional as F
 
+# images are 640 x 640
+
 class mask_net(nn.Module):
 
     def __init__(self):
