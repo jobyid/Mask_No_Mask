@@ -4,7 +4,7 @@ from torch.utils.data import Dataset, DataLoader
 from torchvision import datasets, transforms
 
 #should output the images in 640 x 640
-def load_data(data_folder, batch_size, train, kwargs):
+def load_data(data_folder, batch_size, train):
     transform = {
         'train': transforms.Compose(
             [transforms.Resize([256, 256]),
@@ -20,5 +20,5 @@ def load_data(data_folder, batch_size, train, kwargs):
                                   std=[0.229, 0.224, 0.225])])
         }
     data = datasets.ImageFolder(root = data_folder, transform=transform['train' if train else 'test'])
-    data_loader = torch.utils.data.DataLoader(data, batch_size=batch_size, shuffle=True, **kwargs, drop_last = True if train else False)
+    data_loader = torch.utils.data.DataLoader(data, batch_size=batch_size, shuffle=True, drop_last = True if train else False)
     return data_loader
