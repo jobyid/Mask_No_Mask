@@ -7,7 +7,7 @@ from torchvision import datasets, transforms
 def load_data(data_folder, batch_size, train):
     transform = {
         'train': transforms.Compose(
-            [transforms.Resize([256, 256]),
+            [transforms.Resize([224, 224]),
                 #transforms.RandomCrop(224),
                 #transforms.RandomHorizontalFlip(),
                 transforms.ToTensor(),
